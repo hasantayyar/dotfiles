@@ -16,6 +16,10 @@ alias gl="git log --graph --full-history --all --color"
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
+mp3(){
+	youtube-dl $1 --extract-audio --title --audio-format mp3	
+}
+
 extract () {
     if [ -f $1 ] ; then
       case $1 in
