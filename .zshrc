@@ -1,6 +1,14 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
+alias ainstall="sudo apt-get install"
+alias aupdate="sudo apt-get update"
+alias apurge="sudo apt-get purge"
+alias devpush="git push origin dev"
+alias deploy="git push origin unstable"
+
+alias mergedev="git merge dev"
+alias testpush="git push origin test"
 alias gd="git diff"
 alias gc="git commit"
 alias gl="git log --graph --full-history --all --color"
