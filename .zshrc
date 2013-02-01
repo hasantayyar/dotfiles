@@ -46,6 +46,30 @@ extract () {
      fi
 }
 
+function watch_progress {
+  local file=$1
+  local size=`sudo du -b $file | awk '{print $1}'`
+  local pid=${2:-`
+    sudo lsof -F p $file | cut -c 2- | head -n 1
+  `}
+
+  local watcher=/tmp/watcher-$$
+  cat <<EOF > $watcher
+file=$file
+size=$size
+pid=$pid
+EOF
+
+  cat <<'EOF' >> $watcher
+line=`sudo lsof -o -o 0 -p $pid | grep $file`
+position=`echo $line | awk '{print $7}' | cut -c 3-`
+progress=`echo "scale=2; 100 * $position / $size" | bc`
+echo pid $pid reading $file: $progress% done
+EOF
+
+  chmod +x /tmp/watcher-$$
+  watch /tmp/watcher-$$
+}
 
 COMPLETION_WAITING_DOTS="true"
 
