@@ -24,6 +24,9 @@ alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 mp3(){
 	youtube-dl $1 --extract-audio --title --audio-format mp3	
 }
+extract_links(){
+	lynx -dump $1
+}
 
 extract () {
     if [ -f $1 ] ; then
