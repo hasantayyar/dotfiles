@@ -7,9 +7,9 @@ alias cunstable="git checkout unstable"
 alias ainstall="sudo apt-get install"
 alias aupdate="sudo apt-get update"
 alias apurge="sudo apt-get purge"
-alias devpush="git push origin dev"
-alias devpull="git pull origin dev"
-alias testpush="git push origin testv"
+alias push="git push origin $1"
+alias pull="git pull origin $1"
+
 alias deploy="git push origin unstable"
 
 alias mergedev="git merge dev"
