@@ -21,6 +21,11 @@ alias gl="git log --graph --full-history --all --color"
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
+#find and kill
+fkill(){
+	ps aux | grep "$1" | grep -v grep | awk '{print $2;}' | while read p; do kill -9 $p; done
+}
+
 mp3(){
 	youtube-dl $1 --extract-audio --title --audio-format mp3	
 }
