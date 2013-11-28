@@ -17,7 +17,7 @@ alias testpush="git push origin test"
 alias gd="git diff"
 alias gc="git commit"
 alias gl="git log --graph --full-history --all --color"
-
+alias whowastes="sudo du -h / | grep -w '[0-9]*G'"
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
